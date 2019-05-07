@@ -1,0 +1,160 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="">
+    
+        <title>Carousel Template for Bootstrap</title>
+    
+        <!-- Bootstrap core CSS -->
+        <link href="../static/js/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/index.css" rel="stylesheet">
+        <link href="../static/css/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../static/js/assets/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="../static/js/assets/slick/slick-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="../static/js/assets/datatable/media/css/jquery.dataTables.min.css"/>
+
+    
+        <!-- Custom styles for this template -->
+        <!-- <link href="carousel.css" rel="stylesheet"> -->
+    </head>
+    <body name='top'>
+        <header>
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Virtual Museum</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+              <ul class="navbar-nav ml-auto" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link" href="#home"><span class="oi oi-home"></span>Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#gallery"><span class="oi oi-grid-three-up"></span>Gallery</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#admin"><span class="oi oi-people"></span>Admin</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#info"><span class="oi oi-info"></span>Info</a>
+                </li>
+              </ul>
+              <!-- <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form> -->
+            </div>
+          </nav>
+        </header>
+    
+        <main class='container'>
+
+            <div class="tab-pane fade" id="home" role="tabpanel">
+                
+                <div class='row'>
+                    <div class='col-md-12 align_center'>
+                        <img src="" alt="" class='w-70'>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-md-12 textTitle">
+                        Heading
+                    </div>
+                    <div class='col-md-12 textArea'>
+                        Heading text
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-12 textTitle'>
+                        Gallery
+                    </div>
+                    <div class='col-md-12'>
+                        <div class="row w-100" id='home_gallery_list'>
+                            
+                        </div>
+                    </div>
+                    <div class='col-md-12 more_place align_center'>
+                        <div class='more_button'>More</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="gallery" role="tabpanel">
+                <div class='col-md-12'>
+                    <div class="multiple-items">
+
+                    </div>
+                </div>
+
+                <div class='3d_box'>
+                    <!-- place for 3d model -->
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="admin" role="tabpanel">
+                <div class='col-md-2 col-xs-3 col-sm-3 offset-md-10 offset-sm-9 offset-xs-9 newModel align_center p-1 border border-dark rounded mb-2'  data-toggle="modal" data-target="#newModel" style='display: none;'>
+                    New Model
+                </div>
+                <table id="admin_table" class="hover stripe row-border reportsTable" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Model ID</th>
+                        <th>Description</th>
+                        <th>Options</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="info" role="tabpanel">
+                1236
+            </div>
+            <div class="modal fade" id="newModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="exampleModalLabel">Create new model</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body row">
+                        <div class='col-md-4 col-sm-12 col-xs-12'>Model Name:</div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="text" id='model_name'></div>
+                        <div class='col-md-4 col-sm-12 col-xs-12'>Model Description:</div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="text" name="" id="model_des"></div>
+                        <div class='col-md-4 col-sm-12 col-xs-12'>File:</div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_file' name='file'></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id='create_model'>Create</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+                  
+    
+    
+          <!-- FOOTER -->
+          <footer>
+            <a href='#top' class="top_icon"><span class="oi oi-data-transfer-upload"></span></a></p>
+            <p class='footer_title'>© Mobile 3D Applications</p>
+          </footer>
+        </main>
+
+
+    
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../static/js/assets/jquery/jquery.min.js" ></script>
+        <script src="../static/js/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../static/js/assets/slick/slick.min.js"></script>
+        <script type="text/javascript" src="../static/js/assets/datatable/media/js/jquery.dataTables.min.js"></script>
+        <script src="../static/js/index.js"></script>
+      
+    
