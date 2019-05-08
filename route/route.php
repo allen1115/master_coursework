@@ -18,6 +18,7 @@ Route::get('museum/findAll', 'index/findAll');
 Route::get('museum/findOne/:id', 'index/findOne');
 Route::post('museum/update', 'index/update');
 Route::post('museum/create', 'index/create');
+Route::post('museum/delete', 'index/delete');
 
 return [
 

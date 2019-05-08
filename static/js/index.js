@@ -178,11 +178,11 @@ $(function(){
         },
         getAdminData:function(){
             $.ajax({
-                url:"xxx",
+                url:"museum/findAll",
                 method:"get",
                 dataType:'JSON',
                 success:function(res){
-                    Self.renderAdminData(res.data)
+                    Self.renderAdminData(res)
                 },
                 error:function(err){
                     Self.renderAdminData({})
@@ -192,16 +192,6 @@ $(function(){
             })
         },
         renderAdminData:function(data){
-            data = [
-                {
-                    id:"1",
-                    description:"123"
-                },
-                {
-                    id:'2',
-                    description:"321"
-                }
-            ]
             var dataTableOption = {
                 dom: '<"top"<"pull-left"l><"pull-right"f><"pull-right create">>rt<"bottom"<"pull-left"i><"pull-right"p>><"clear">',
                 iDisplayLength: 10,
@@ -216,7 +206,7 @@ $(function(){
               };
 
               dataTableOption.columns = [{
-                  "data": "id",
+                  "data": "name",
                   "width": '20%',
                   render: function (data, type, full) {
                     return data
@@ -244,10 +234,44 @@ $(function(){
               $("#admin_table").DataTable(dataTableOption);
               $(".update_admin").off("click").on("click",function(e){
                 var id=$(e.currentTarget).parent().attr("data_id")
+                const param = {
+                    id: id,
+                    description: $('#description').val()
+                }
+                Self.updateVase(param);
               });
               $(".delete_admin").off("click").on("click",function(e){
                 var id=$(e.currentTarget).parent().attr("data_id")
+                Self.deleteVase(id)
               })
+        },
+        updateVase:function(param){
+            $.ajax({
+                url:"museum/update",
+                method:"post",
+                dataType:'JSON',
+                data: param,
+                success:function(res){
+                    Self.getAdminData();
+                },
+                error:function(err){
+                    Self.getAdminData();
+                }
+            })
+        },
+        deleteVase:function(id){
+            $.ajax({
+                url:"museum/delete",
+                method:"post",
+                data: {id: id},
+                dataType:'JSON',
+                success:function(res){
+                    Self.getAdminData();
+                },
+                error:function(err){
+                    Self.getAdminData();
+                }
+            })
         }
 
     };
