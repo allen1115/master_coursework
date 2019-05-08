@@ -14,6 +14,10 @@ Route::get('think', function () {
 });
 
 Route::get('hello/:name', 'index/hello');
+Route::get('museum/findAll', 'index/findAll');
+Route::get('museum/findOne/:id', 'index/findOne');
+Route::post('museum/update', 'index/update');
+Route::post('museum/create', 'index/create');
 
 return [
 
