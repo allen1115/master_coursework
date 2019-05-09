@@ -175,7 +175,19 @@ $(function(){
 
               $(".gallery_item").off("click").on("click",function(e){
                   var id= $(e.currentTarget).attr("data_id");
-                    // do something after click the item
+                  $.ajax({
+                    url:"museum/findOne/" + id,
+                    method:"get",
+                    dataType:'JSON',
+                    success:function(res){
+                        $("#3d_model").attr("url", res.x3d);
+                        $('#3d_text').html(res.description);
+                        $('#gallery_img').attr('src', res.img);
+                        $('#gallery_video').attr('src', res.video);
+                    },
+                    error:function(err){
+                    }
+                })
               })
         },
         initAdminPage:function(){
