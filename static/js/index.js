@@ -30,22 +30,33 @@ $(function(){
             })
 
             $("#create_model").off("click").on("click",function(){
-                var data = {
-                    model_name:$("#model_name").val(),
-                    model_des:$("#model_des").val(),
-                    model_image:new FormData($("#model_image")[0]),
-                    model_video:new FormData($("#model_video")[0]),
-                    model_x3d:new FormData($("#model_x3d")[0]),   
-                    model_texture:new FormData($("#model_texture")[0]),   
-                }
+                let formData = new FormData();
+                formData.append('img', $("#model_image")[0].files[0])
+                formData.append('video', $("#model_video")[0].files[0])
+                formData.append('x3d', $("#model_x3d")[0].files[0])
+                formData.append('texture', $("#model_texture")[0].files[0])
+                formData.append('name', $("#model_name").val())
+                formData.append('description', $("#model_des").val())
                 $.ajax({
-                    data:data,
-                    url:"",
+                    data:formData,
+                    url:"museum/create",
+                    type: 'post',
+                    cache: false,
+                    processData: false,
+                    contentType: false,
                     success:function(res){
-
+                        alert('Upload Success');
+                        $('#newModel').modal('hide');
+                        Self.getAdminData();
+                        $('#model_name').val('')
+                        $('#model_des').val('')
+                        $('#model_image').val('')
+                        $('#model_video').val('')
+                        $('#model_x3d').val('')
+                        $('#model_texture').val('')
                     },
                     error:function(err){
-
+                        alert('Upload Failure');
                     }
                 })
             })
@@ -58,13 +69,50 @@ $(function(){
                 })
             })
 
-            $("#gallery_button_group div").off("click").on("click",function(e){
-                var name = $(e.currentTarget).attr("id");
-                
-            })
             $("#gallery_button_group button").off("click").on("click",function(e){
                 $("#gallery_button_group button").removeClass("active");
                 $(e.currentTarget).addClass("active");
+                const id = e.currentTarget.id;
+                if(id === 'spin') {
+                    document.getElementById('Vase__TIMER').setAttribute('enabled', 'true')
+                } else if (id === 'wireframe') {
+                    document.getElementById('Vase__TIMER').setAttribute('enabled', 'false')
+                    var e = document.getElementsByTagName('x3d')[0];
+                    e.runtime.togglePoints(true);
+                } else if (id === 'texture') {
+                    document.getElementById('Vase__TIMER').setAttribute('enabled', 'false')
+                    const texture = document.getElementsByTagName('ImageTexture')[0].getAttribute('url')[0];
+                    if(texture !== '') {
+                        document.getElementsByTagName('ImageTexture')[0].setAttribute('url', '');
+                    } else {
+                        let url = localStorage.getItem('imgUrl');
+                        url = url.split('/static/')[1]
+                        document.getElementsByTagName('ImageTexture')[0].setAttribute('url', '../' + url);
+                    }
+                } else if (id === 'camera1') {
+                    document.getElementById('Vase__TIMER').setAttribute('enabled', 'false')
+                    document.getElementById('Vase__frontCam').setAttribute('set_bind', 'true') 
+                } else if (id === 'camera2') {
+                    document.getElementById('Vase__TIMER').setAttribute('enabled', 'false')
+                    document.getElementById('Vase__topCam').setAttribute('set_bind', 'true') 
+                } else if (id === 'light') {
+                    const lightStatus = localStorage.getItem('light');
+                    const spotLights = document.getElementsByTagName('PointLight')
+                    let flag;
+                    if(lightStatus === 'on') {
+                        // turn off the light
+                        localStorage.setItem('light', 'off')
+                        flag = 'false'
+                    } else {
+                        // turn on the light
+                        localStorage.setItem('light', 'on')
+                        flag = 'true'
+                    }
+
+                    for(let i = 0 ; i<spotLights.length; i++) {
+                        spotLights[i].setAttribute('on', flag)
+                    }
+                }
             })
         },
         setActiveTab:function(name='home'){
@@ -122,6 +170,8 @@ $(function(){
                 method:"get",
                 dataType:'JSON',
                 success:function(res){
+                    localStorage.setItem('imgUrl', res.img);
+                    localStorage.setItem('light', 'on');
                     $("#gallery_button_group button").removeClass("active");
                     Self.renderDataToGallery(res)
                 },
@@ -201,6 +251,8 @@ $(function(){
                 method:"get",
                 dataType:'JSON',
                 success:function(res){
+                    localStorage.setItem('imgUrl', res.img);
+                    localStorage.setItem('light', 'on');
                     $("#gallery_button_group button").removeClass("active");
                     $("#3d_model").attr("url", res.x3d);
                     $('#d3_text').html(res.description);
@@ -290,6 +342,7 @@ $(function(){
                 data: param,
                 success:function(res){
                     $("#editModel").modal("hide")
+                    $('#new_model_des').val('')
                     Self.getAdminData();
                 },
                 error:function(err){

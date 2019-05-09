@@ -86,25 +86,27 @@ class Index extends Controller
      */
     public function create(Request $request)
     {
-        $x3d = $request->file('x3d');
-        $img = $request->file('img');
-        $video = $request->file('video');
-        $texture = $request->file('texture');
+        $x3d = request()->file('x3d');
+        $img = request()->file('img');
+        $video = request()->file('video');
+        $texture = request()->file('texture');
         $des = $request->post('description');
+        $name = $request->post('name');
         if (empty($x3d) || empty($img) || empty($video)) {
             return 'Please upload x3d or image or video';
         }
-        $info1 = $x3d->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'uploads');
+        $info1 = $x3d->rule('uniqid')->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'uploads');
         $x3d_path = '../static/uploads/'.str_replace('\\', '/', $info1->getSaveName());
-        $info2 = $img->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'uploads');
+        $info2 = $img->rule('uniqid')->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'uploads');
         $img_path = '../static/uploads/'.str_replace('\\', '/', $info2->getSaveName());
-        $info3 = $video->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'uploads');
+        $info3 = $video->rule('uniqid')->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'uploads');
         $video_path = '../static/uploads/'.str_replace('\\', '/', $info3->getSaveName());
-        $texture->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'uploads');
+        $texture->rule('uniqid')->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'texture', '');
 
         $museum = new Museum;
         $museum->x3d = $x3d_path;
         $museum->img = $img_path;
+        $museum->name = $name;
         $museum->video = $video_path;
         $museum->description = $des;
 
