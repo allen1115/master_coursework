@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Virtual Museum</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/js/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@
 <body name='top'>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">Virtual Museum</a>
+            <a class="navbar-brand" href="#"><img src='../static/assets/img/M_logo_copy.png' style='width: 40px;margin-right: 10px'/>Virtual Museum</a>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -61,8 +61,8 @@
         <div class="tab-pane fade" id="home" role="tabpanel">
 
             <div class='row'>
-                <div class='col-md-12 align_center'>
-                    <img src="../static/assets/img/home.jpg" alt="" class='w-50 my-4'>
+                <div class='col-md-6 offset-md-3 col-sm-10 col-xs-10 align_center'>
+                    <img src="../static/assets/img/home.jpg" alt="" class='w-100 my-4'>
                 </div>
             </div>
             <div class='row'>
@@ -97,7 +97,7 @@
                     Gallery
                 </div>
                 <div class='col-md-12'>
-                    <div class="row w-100" id='home_gallery_list'>
+                    <div class="row" id='home_gallery_list'>
 
                     </div>
                 </div>
@@ -107,7 +107,7 @@
             </div>
         </div>
         <div class="tab-pane fade" id="gallery" role="tabpanel">
-            <div class='col-md-12'>
+            <div class='col-md-12' id='multiple_box'>
                 <div class="multiple-items">
 
                 </div>
@@ -117,7 +117,7 @@
                 <!-- place for 3d model -->
                 <div class="row">
                     <div class='col-md-2 col-sm-12 col-xs-12 p-0' id='gallery_button_group'>
-                        <div class="row" style='padding:0 15px'>
+                        <div class="row" style='padding:0 15px;margin-top: 33px;'>
                             <div class='col-md-12 col-sm-4 col-xs-4'>
                                 <button id='spin' class='button button-plain button-border'><i
                                         class="fa fa-circle-o-notch fa-spin"></i>Spin</button>
@@ -174,7 +174,7 @@
                             </div>
                             <div class="tab-pane fade" id="x3d">
                                 <div class='row'>
-                                    <div class='col-md-9 col-sm-12 col-xs-12' id='3d_box'>
+                                    <div class='col-md-7 col-sm-12 col-xs-12' id='d3_box'>
                                         <!-- 3d box -->
                                         <x3d width='500px' height='400px'>
                                             <scene>
@@ -182,7 +182,7 @@
                                             </scene>
                                         </x3d>
                                     </div>
-                                    <div class='col-md-3 col-sm-12 col-xs-12' id='3d_text'>
+                                    <div class='col-md-5 col-sm-12 col-xs-12' id='d3_text'>
                                     </div>
                                 </div>
                             </div>
@@ -220,25 +220,34 @@
                 contents may be freely copied and distributed provided the source is acknowledged".</p>
             <h2>References</h2>
             All models were modelled from the following links:
-            1) http://collections.vam.ac.uk/item/O496508/vase-and-lid-unknown/
-            2) http://collections.vam.ac.uk/item/O495833/ewer-unknown/
-            3) http://collections.vam.ac.uk/item/O494838/incense-burner-unknown/
-            4) http://collections.vam.ac.uk/item/O493603/vase-unknown/
-            5) Vases 5-8 were retextured of the links declared above
+            <ol>
+                <li><a href="http://collections.vam.ac.uk/item/O496508/vase-and-lid-unknown/">http://collections.vam.ac.uk/item/O496508/vase-and-lid-unknown/</a></li>
+                <li><a href="http://collections.vam.ac.uk/item/O495833/ewer-unknown/">http://collections.vam.ac.uk/item/O495833/ewer-unknown/</a></li>
+                <li><a href="http://collections.vam.ac.uk/item/O494838/incense-burner-unknown/">http://collections.vam.ac.uk/item/O494838/incense-burner-unknown/</a></li>
+                <li><a href="http://collections.vam.ac.uk/item/O493603/vase-unknown/">http://collections.vam.ac.uk/item/O493603/vase-unknown/</a></li>
+                <li>Vases 5-8 were retextured of the links declared above</li>
+            </ol>
             Textures were downloaded from different Chinese websites, since they contain the largest amount of
             freely distributed textures on this thematic:
-            1) http://down6.zhulong.com/mobile/tech/detailprof829994XR.htm
-            2) http://m.90sheji.com/sucai/16611966.html
-            3) http://blog.sina.com.cn/s/blog_452793220102wibh.html
-            4) The rest of the textures were found here:
-            http://www.cgmodel.com/essay-4177.html
+            <ol>
+                <li><a href="http://down6.zhulong.com/mobile/tech/detailprof829994XR.htm">http://down6.zhulong.com/mobile/tech/detailprof829994XR.htm</a></li>
+                <li><a href="http://m.90sheji.com/sucai/16611966.html">http://m.90sheji.com/sucai/16611966.html</a></li>
+                <li><a href="http://blog.sina.com.cn/s/blog_452793220102wibh.html">http://blog.sina.com.cn/s/blog_452793220102wibh.html</a></li>
+                <li>The rest of the textures were found here:<a href="http://www.cgmodel.com/essay-4177.html">http://www.cgmodel.com/essay-4177.html</a></li>
+            </ol>
             <h2>Third-party library used:</h2>
-            1) Bootstrap: https://getbootstrap.com/
-            2) jQuery: https://jquery.com/
-            3) PHP Framewrok thinkPHP: https://github.com/top-think/framework
+            <ol>
+                <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+                <li><a href="https://jquery.com/">jQuery</a></li>
+                <li><a href="https://github.com/top-think/framework">PHP Framewrok thinkPHP</a></li>
+            </ol>
             <h2>Tutorials used:</h2>
-            x3dom official tutorials: https://doc.x3dom.org/tutorials/index.html
-            ThinkPHP 5.1 Tutorial: https://www.kancloud.cn/manual/thinkphp5_1/353946
+            <ol>
+                <li><a href="https://doc.x3dom.org/tutorials/index.html">x3dom official tutorials</a> </li>
+                <li><a href="https://www.kancloud.cn/manual/thinkphp5_1/353946">ThinkPHP 5.1 Tutorial</a>  </li>
+            </ol>
+            
+            
         </div>
         <div class="modal fade" id="newModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -263,10 +272,35 @@
                         </div>
                         <div class='col-md-4 col-sm-12 col-xs-12'>X3D:</div>
                         <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_x3d' name='x3d'></div>
+                        <div class='col-md-4 col-sm-12 col-xs-12'>Texture:</div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_texture' name='texture'></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" id='create_model'>Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="exampleModalLabel">Edit model</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body row">
+                        
+                        <div class='col-md-4 col-sm-12 col-xs-12' style='font-size: 0.8rem'>Model Description:</div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="text" name="" id="new_model_des"></div>
+                       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id='edit_model'>Save</button>
                     </div>
                 </div>
             </div>
