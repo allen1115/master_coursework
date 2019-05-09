@@ -11,10 +11,13 @@
         <!-- Bootstrap core CSS -->
         <link href="../static/js/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="../static/css/index.css" rel="stylesheet">
-        <link href="../static/css/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+        <link href="../static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../static/css/button.css" rel="stylesheet">
+        <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../static/js/assets/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="../static/js/assets/slick/slick-theme.css"/>
         <link rel="stylesheet" type="text/css" href="../static/js/assets/datatable/media/css/jquery.dataTables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../static/css/x3dom.css"/>
 
     
         <!-- Custom styles for this template -->
@@ -56,19 +59,21 @@
                 
                 <div class='row'>
                     <div class='col-md-12 align_center'>
-                        <img src="" alt="" class='w-70'>
+                        <img src="../static/assets/img/home.jpg" alt="" class='w-50 my-4'>
                     </div>
                 </div>
                 <div class='row'>
                     <div class="col-md-12 textTitle">
-                        Heading
+                            Virtual Museum heading
                     </div>
                     <div class='col-md-12 textArea'>
-                        Heading text
+                            A museum is defined by the International Council of Museums (ICOM) as a 'non-profit, permanent institution in the service of society and its development, open to the public, which acquires, conserves, researches, communicates and exhibits the tangible and intangible heritage of humanity and its environment for the purposes of education, study and enjoyment'. A virtual museum (VM) (according to the ViMM.1 working definition[1]) is a digital entity that draws on the characteristics of a museum, in order to complement, enhance, or augment the museum through personalization, interactivity, user experience and richness of content. Both the 'physical' museum (PhM) and the VM share a common commitment to the institutional validation of content and quality of experience through curatorial process, inherent in the ICOM definition.
+                            <br>
+                            As with a traditional museum, a virtual museum can be designed around specific objects (such as an art museum or a natural history museum), or can consist of online exhibitions created from primary or secondary resources (as, for example in a science museum). Moreover, a virtual museum can refer to the mobile or World Wide Web offerings of traditional museums (e.g., displaying digital representations of its collections or exhibits); or can be born digital content such as, 3D environments, net art, virtual reality and digital art. Often, discussed in conjunction with other cultural institutions, a museum by definition, is essentially separate from its sister institutions such as a library or an archive. Virtual museums are usually, but not exclusively delivered electronically when they are denoted as online museums, hypermuseum, digital museum, cybermuseums or web museums.
                     </div>
                 </div>
                 <div class='row'>
-                    <div class='col-md-12 textTitle'>
+                    <div class='col-md-12 textTitle mt-4'>
                         Gallery
                     </div>
                     <div class='col-md-12'>
@@ -88,9 +93,67 @@
                     </div>
                 </div>
 
-                <div class='3d_box'>
+                <div class='3d_box col-md-12  mb-6'>
                     <!-- place for 3d model -->
-
+                    <div class="row">
+                        <div class='col-md-2 col-sm-12 col-xs-12 p-0' id='gallery_button_group'>
+                            <div class="row" style='padding:0 15px'>
+                                <div class='col-md-12 col-sm-4 col-xs-4'>
+                                    <button id='spin' class='button button-plain button-border'><i class="fa fa-circle-o-notch fa-spin"></i>Spin</button>
+                                </div>
+                                <div class='col-md-12 col-sm-4 col-xs-4'>
+                                    <button id='wireframe' class='button button-plain button-border'><i class="fa fa-globe fa-lg"></i>Wireframe</button>
+                                </div>
+                                <div class='col-md-12 col-sm-4 col-xs-4'>
+                                    <button id='texture' class='button button-plain button-border'><i class="fa fa-image fa-lg"></i>Texture</button>
+                                </div>
+                                <div class='col-md-12 col-sm-4 col-xs-4'>
+                                    <button id='camera1' class='button button-plain button-border'><i class="fa fa-file-video-o fa-lg"></i>Camera1</button>
+                                </div>
+                                <div class='col-md-12 col-sm-4 col-xs-4'>
+                                    <button id='camera2' class='button button-plain button-border'><i class="fa fa-file-video-o fa-lg"></i>Camera2</button>
+                                </div>
+                                <div class='col-md-12 col-sm-4 col-xs-4'>
+                                    <button id='light' class='button button-plain button-border'><i class="fa fa-lightbulb-o fa-lg"></i>Light</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class='col-md-10 col-sm-12 col-xs-12 p-0'>
+                            <ul class="nav nav-tabs" id='tab_header'>
+                                <li><div href="#x3d" data-toggle="tab">3D Model</div></li>
+                                <li><div href="#image" data-toggle="tab">Image</div></li>
+                                <li><div href="#video" data-toggle="tab">Video</div></li>
+                            </ul>
+                            <div id="gallery_tab" class="tab-content">
+                                <div class="tab-pane fade in active" id="image">
+                                    <div class='row'>
+                                        <div class='col-md-12'>
+                                            <img src="" alt="" id='gallery_img' class='w-100'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="video">
+                                    <div class='row'>
+                                        <div class='col-md-12'>
+                                            <video src=""  controls="controls" id='gallery_video' class='w-100'></video>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="x3d">
+                                    <div class='row'>
+                                        <div class='col-md-9 col-sm-12 col-xs-12' id='3d_box'>
+                                            <!-- 3d box -->
+                                            <x3></x3>
+                                        </div>
+                                        <div class='col-md-3 col-sm-12 col-xs-12' id='3d_text'>
+                                            123
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="admin" role="tabpanel">
@@ -126,8 +189,12 @@
                         <div class='col-md-8 col-sm-12 col-xs-12'><input type="text" id='model_name'></div>
                         <div class='col-md-4 col-sm-12 col-xs-12'>Model Description:</div>
                         <div class='col-md-8 col-sm-12 col-xs-12'><input type="text" name="" id="model_des"></div>
-                        <div class='col-md-4 col-sm-12 col-xs-12'>File:</div>
-                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_file' name='file'></div>
+                        <div class='col-md-4 col-sm-12 col-xs-12'>Image:</div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_image' name='image'></div>
+                        <div class='col-md-4 col-sm-12 col-xs-12'>Video:</div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_video' name='video'></div>
+                        <div class='col-md-4 col-sm-12 col-xs-12'>X3D:</div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_x3d' name='x3d'></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -141,7 +208,7 @@
     
           <!-- FOOTER -->
           <footer>
-            <a href='#top' class="top_icon"><span class="oi oi-data-transfer-upload"></span></a></p>
+            <a href='#top' class="top_icon"><span class="fa fa-arrow-up fa-lg"></span></a></p>
             <p class='footer_title'>© Mobile 3D Applications</p>
           </footer>
         </main>
@@ -153,6 +220,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="../static/js/assets/jquery/jquery.min.js" ></script>
         <script src="../static/js/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../static/js/x3dom.js"></script>
         <script type="text/javascript" src="../static/js/assets/slick/slick.min.js"></script>
         <script type="text/javascript" src="../static/js/assets/datatable/media/js/jquery.dataTables.min.js"></script>
         <script src="../static/js/index.js"></script>

@@ -29,7 +29,9 @@ $(function(){
                 var data = {
                     model_name:$("#model_name").val(),
                     model_des:$("#model_des").val(),
-                    model_file:new FormData($("#model_file")[0])
+                    model_image:new FormData($("#model_image")[0]),
+                    model_video:new FormData($("#model_video")[0]),
+                    model_x3d:new FormData($("#model_x3d")[0]),   
                 }
                 $.ajax({
                     data:data,
@@ -42,6 +44,11 @@ $(function(){
                     }
                 })
             })
+
+            $("#gallery_button_group div").off("click").on("click",function(e){
+                var name = $(e.currentTarget).attr("id");
+                
+            })
         },
         setActiveTab:function(name='home'){
             $("#navbarCollapse .nav-item").removeClass("active");
@@ -49,7 +56,8 @@ $(function(){
             $("#"+name).removeClass("fade");
             $(".nav-link[href='#"+name+"']").parent().addClass('active');
             if(name=='gallery'){
-                Self.initGalleryPage()
+                Self.initGalleryPage();
+                $('#tab_header div:first').tab('show')
             }else if(name=='admin'){
                 Self.initAdminPage()
             }
@@ -58,12 +66,9 @@ $(function(){
         getGalleryList:function(num=Self.data_store.listCount){
             $(".more_place").hide();
             $.ajax({
-                url:"",
-                data:{
-                    num:num
-                },
-                dataType:JSON,
-                method:"post",
+                url:"museum/findAll",
+                dataType:'JSON',
+                method:"get",
                 success:function(res){
                     Self.renderDataToGalleryList(res)
                 },
@@ -73,10 +78,10 @@ $(function(){
             })
         },
         renderDataToGalleryList:function(res){
-            res.data.map((item,index)=>{
+            res.map((item,index)=>{
                 $("#home_gallery_list").append(
                     `<div class='col-md-3 col-sm-6 col-xs-6 home_gallery_item align_center' data-id='${item.id}'>
-                        <img src="${item.img_url}" alt="" />
+                        <img src="${item.img}" alt="" />
                         <div class=''>${item.name}</div>
                     </div>`
                 )
@@ -97,7 +102,7 @@ $(function(){
                 data:{
                     id:id
                 },
-                url:"",
+                url:"xxx",
                 method:"post",
                 dataType:'JSON',
                 success:function(res){
@@ -114,11 +119,11 @@ $(function(){
         },
         initGalleryPage:function(){
             $.ajax({
-                url:"",
+                url:"museum/findAll",
                 dataType:"json",
                 method:"get",
                 success:function(res){
-                    Self.renderDataToGalleryPage(res.data)
+                    Self.renderDataToGalleryPage(res)
                 },
                 error:function(err){
 
@@ -129,7 +134,7 @@ $(function(){
         renderDataToGalleryPage:function(data){
             $(".multiple-items").empty()
             data.map((item,index)=>{
-                $(".multiple-items").append(`<div><img class='gallery_item' src='${item.url}' alt='' data_id='${item.id}'/></div>`)
+                $(".multiple-items").append(`<div><img class='gallery_item' src='${item.img}' alt='' data_id='${item.id}'/></div>`)
             })
             $('.multiple-items').not('.slick-initialized').slick({
                 dots: true,
