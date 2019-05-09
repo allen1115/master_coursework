@@ -12,11 +12,15 @@ $(function(){
         initEvent:function(){
             $("#navbarCollapse .nav-item").off("click").on("click",function(e){
                 var target = $(e.currentTarget).find(".nav-link").eq(0).attr("href").substr(1);
-                
                 if($(document).width()<768){
                     $(".navbar-toggler").trigger("click")
                 }
                 Self.setActiveTab(target);
+                if(target=='gallery'){
+                    setTimeout(function(){
+                        $(".gallery_item").eq(0).trigger("click")
+                    },500) 
+                }
             });
             
             //load more data;
@@ -32,6 +36,7 @@ $(function(){
                     model_image:new FormData($("#model_image")[0]),
                     model_video:new FormData($("#model_video")[0]),
                     model_x3d:new FormData($("#model_x3d")[0]),   
+                    model_texture:new FormData($("#model_texture")[0]),   
                 }
                 $.ajax({
                     data:data,
@@ -44,10 +49,22 @@ $(function(){
                     }
                 })
             })
+            // edit model
+            $("#edit_model").off("click").on("click",function(){
+                
+                Self.updateVase({
+                    id:Self.data_store.update_id,
+                    description:$("#new_model_des").val()
+                })
+            })
 
             $("#gallery_button_group div").off("click").on("click",function(e){
                 var name = $(e.currentTarget).attr("id");
                 
+            })
+            $("#gallery_button_group button").off("click").on("click",function(e){
+                $("#gallery_button_group button").removeClass("active");
+                $(e.currentTarget).addClass("active");
             })
         },
         setActiveTab:function(name='home'){
@@ -61,6 +78,7 @@ $(function(){
             }else if(name=='admin'){
                 Self.initAdminPage()
             }
+            $(".top_icon").trigger("click");
             
         },
         getGalleryList:function(num=Self.data_store.listCount){
@@ -78,10 +96,11 @@ $(function(){
             })
         },
         renderDataToGalleryList:function(res){
+            $("#home_gallery_list").empty();
             res.map((item,index)=>{
                 $("#home_gallery_list").append(
                     `<div class='col-md-3 col-sm-6 col-xs-6 home_gallery_item align_center' data-id='${item.id}'>
-                        <img src="${item.img}" alt="" />
+                        <img src="${item.img}" alt="" class='w-100' />
                         <div class=''>${item.name}</div>
                     </div>`
                 )
@@ -92,30 +111,31 @@ $(function(){
             })
             $(".more_place").show();
             //if show more button
-            if(res.more){
+            if(res.length<=Self.data_store.listCount){
                 $(".more_place").remove();
             }
             
         },
         getGalleryById:function(id){
             $.ajax({
-                data:{
-                    id:id
-                },
-                url:"xxx",
-                method:"post",
+                url:"museum/findOne/" + id,
+                method:"get",
                 dataType:'JSON',
                 success:function(res){
-                    Self.renderDataToGallery(res.data)
+                    $("#gallery_button_group button").removeClass("active");
+                    Self.renderDataToGallery(res)
                 },
                 error:function(err){
                     console.log(err)
                 }
             })
         },
-        renderDataToGallery:function(data){
-
-            setActiveTab("gallery")
+        renderDataToGallery:function(res){
+            Self.setActiveTab("gallery");
+            $("#3d_model").attr("url", res.x3d);
+            $('#d3_text').html(res.description);
+            $('#gallery_img').attr('src', res.img);
+            $('#gallery_video').attr('src', res.video);
         },
         initGalleryPage:function(){
             $.ajax({
@@ -132,9 +152,10 @@ $(function(){
             
         },
         renderDataToGalleryPage:function(data){
-            $(".multiple-items").empty()
+            $("#multiple_box").empty()
+            $("#multiple_box").append('<div class="multiple-items"></div>')
             data.map((item,index)=>{
-                $(".multiple-items").append(`<div><img class='gallery_item' src='${item.img}' alt='' data_id='${item.id}'/></div>`)
+                $(".multiple-items").append(`<div><img class='gallery_item w-100' src='${item.img}' alt='' data_id='${item.id}'/></div>`)
             })
             $('.multiple-items').not('.slick-initialized').slick({
                 dots: true,
@@ -171,12 +192,26 @@ $(function(){
                     // settings: "unslick"
                     // instead of a settings object
                 ]
-              });
+            });
 
-              $(".gallery_item").off("click").on("click",function(e){
-                  var id= $(e.currentTarget).attr("data_id");
-                    // do something after click the item
-              })
+            $(".gallery_item").off("click").on("click",function(e){
+                var id= $(e.currentTarget).attr("data_id");
+                $.ajax({
+                url:"museum/findOne/" + id,
+                method:"get",
+                dataType:'JSON',
+                success:function(res){
+                    $("#gallery_button_group button").removeClass("active");
+                    $("#3d_model").attr("url", res.x3d);
+                    $('#d3_text').html(res.description);
+                    $('#gallery_img').attr('src', res.img);
+                    $('#gallery_video').attr('src', res.video);
+                    
+                },
+                error:function(err){
+                }
+            })
+            })
         },
         initAdminPage:function(){
             Self.getAdminData()
@@ -212,21 +247,21 @@ $(function(){
 
               dataTableOption.columns = [{
                   "data": "name",
-                  "width": '20%',
+                  "width": '10%',
                   render: function (data, type, full) {
                     return data
                   }
                 },
                 {
                   "data": "description",
-                  "width": '40%',
+                  "width": '80%',
                   render: function (data, type, full) {
                     return data
                   }
                 },
                 {
                   "data": "id",
-                  "width": '40%',
+                  "width": '10%',
                   render: function (data, type, full) {
                     return `<div data_id='${data}'>
                         <span class='update_admin border-right border-dark'>Update</span><span class='delete_admin'>Delete</span>
@@ -239,11 +274,8 @@ $(function(){
               $("#admin_table").DataTable(dataTableOption);
               $(".update_admin").off("click").on("click",function(e){
                 var id=$(e.currentTarget).parent().attr("data_id")
-                const param = {
-                    id: id,
-                    description: $('#description').val()
-                }
-                Self.updateVase(param);
+                Self.data_store.update_id = id;
+                $("#editModel").modal("show")
               });
               $(".delete_admin").off("click").on("click",function(e){
                 var id=$(e.currentTarget).parent().attr("data_id")
@@ -257,6 +289,7 @@ $(function(){
                 dataType:'JSON',
                 data: param,
                 success:function(res){
+                    $("#editModel").modal("hide")
                     Self.getAdminData();
                 },
                 error:function(err){

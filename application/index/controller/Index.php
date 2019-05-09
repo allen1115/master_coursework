@@ -89,6 +89,7 @@ class Index extends Controller
         $x3d = $request->file('x3d');
         $img = $request->file('img');
         $video = $request->file('video');
+        $texture = $request->file('texture');
         $des = $request->post('description');
         if (empty($x3d) || empty($img) || empty($video)) {
             return 'Please upload x3d or image or video';
@@ -99,6 +100,7 @@ class Index extends Controller
         $img_path = '../static/uploads/'.str_replace('\\', '/', $info2->getSaveName());
         $info3 = $video->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'uploads');
         $video_path = '../static/uploads/'.str_replace('\\', '/', $info3->getSaveName());
+        $texture->move(Env::get('root_path') . 'static' . DIRECTORY_SEPARATOR . 'uploads');
 
         $museum = new Museum;
         $museum->x3d = $x3d_path;
