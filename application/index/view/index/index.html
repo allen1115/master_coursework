@@ -1,157 +1,188 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="">
-    
-        <title>Carousel Template for Bootstrap</title>
-    
-        <!-- Bootstrap core CSS -->
-        <link href="../static/js/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../static/css/index.css" rel="stylesheet">
-        <link href="../static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="../static/css/button.css" rel="stylesheet">
-        <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../static/js/assets/slick/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="../static/js/assets/slick/slick-theme.css"/>
-        <link rel="stylesheet" type="text/css" href="../static/js/assets/datatable/media/css/jquery.dataTables.min.css"/>
-        <link rel="stylesheet" type="text/css" href="../static/css/x3dom.css"/>
 
-    
-        <!-- Custom styles for this template -->
-        <!-- <link href="carousel.css" rel="stylesheet"> -->
-    </head>
-    <body name='top'>
-        <header>
-          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/js/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/index.css" rel="stylesheet">
+    <link href="../static/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/css/button.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/js/assets/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../static/js/assets/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../static/js/assets/datatable/media/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/x3dom.css" />
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="carousel.css" rel="stylesheet"> -->
+</head>
+
+<body name='top'>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">Virtual Museum</a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse" id="navbarCollapse" style="">
-              <ul class="navbar-nav ml-auto" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link" href="#home"><span class="oi oi-home"></span>Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#gallery"><span class="oi oi-grid-three-up"></span>Gallery</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#admin"><span class="oi oi-people"></span>Admin</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#info"><span class="oi oi-info"></span>Info</a>
-                </li>
-              </ul>
-              <!-- <form class="form-inline mt-2 mt-md-0">
+                <ul class="navbar-nav ml-auto" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home"><span class="oi oi-home"></span>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery"><span class="oi oi-grid-three-up"></span>Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#admin"><span class="oi oi-people"></span>Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#info"><span class="oi oi-info"></span>Info</a>
+                    </li>
+                </ul>
+                <!-- <form class="form-inline mt-2 mt-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form> -->
             </div>
-          </nav>
-        </header>
-    
-        <main class='container'>
+        </nav>
+    </header>
 
-            <div class="tab-pane fade" id="home" role="tabpanel">
-                
-                <div class='row'>
-                    <div class='col-md-12 align_center'>
-                        <img src="../static/assets/img/home.jpg" alt="" class='w-50 my-4'>
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class="col-md-12 textTitle">
-                            Virtual Museum heading
-                    </div>
-                    <div class='col-md-12 textArea'>
-                            A museum is defined by the International Council of Museums (ICOM) as a 'non-profit, permanent institution in the service of society and its development, open to the public, which acquires, conserves, researches, communicates and exhibits the tangible and intangible heritage of humanity and its environment for the purposes of education, study and enjoyment'. A virtual museum (VM) (according to the ViMM.1 working definition[1]) is a digital entity that draws on the characteristics of a museum, in order to complement, enhance, or augment the museum through personalization, interactivity, user experience and richness of content. Both the 'physical' museum (PhM) and the VM share a common commitment to the institutional validation of content and quality of experience through curatorial process, inherent in the ICOM definition.
-                            <br>
-                            As with a traditional museum, a virtual museum can be designed around specific objects (such as an art museum or a natural history museum), or can consist of online exhibitions created from primary or secondary resources (as, for example in a science museum). Moreover, a virtual museum can refer to the mobile or World Wide Web offerings of traditional museums (e.g., displaying digital representations of its collections or exhibits); or can be born digital content such as, 3D environments, net art, virtual reality and digital art. Often, discussed in conjunction with other cultural institutions, a museum by definition, is essentially separate from its sister institutions such as a library or an archive. Virtual museums are usually, but not exclusively delivered electronically when they are denoted as online museums, hypermuseum, digital museum, cybermuseums or web museums.
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class='col-md-12 textTitle mt-4'>
-                        Gallery
-                    </div>
-                    <div class='col-md-12'>
-                        <div class="row w-100" id='home_gallery_list'>
-                            
-                        </div>
-                    </div>
-                    <div class='col-md-12 more_place align_center'>
-                        <div class='more_button'>More</div>
-                    </div>
+    <main class='container'>
+
+        <div class="tab-pane fade" id="home" role="tabpanel">
+
+            <div class='row'>
+                <div class='col-md-12 align_center'>
+                    <img src="../static/assets/img/home.jpg" alt="" class='w-50 my-4'>
                 </div>
             </div>
-            <div class="tab-pane fade" id="gallery" role="tabpanel">
+            <div class='row'>
+                <div class="col-md-12 textTitle">
+                    Virtual Museum heading
+                </div>
+                <div class='col-md-12 textArea'>
+                    A museum is defined by the International Council of Museums (ICOM) as a 'non-profit, permanent
+                    institution in the service of society and its development, open to the public, which acquires,
+                    conserves, researches, communicates and exhibits the tangible and intangible heritage of humanity
+                    and its environment for the purposes of education, study and enjoyment'. A virtual museum (VM)
+                    (according to the ViMM.1 working definition[1]) is a digital entity that draws on the
+                    characteristics of a museum, in order to complement, enhance, or augment the museum through
+                    personalization, interactivity, user experience and richness of content. Both the 'physical' museum
+                    (PhM) and the VM share a common commitment to the institutional validation of content and quality of
+                    experience through curatorial process, inherent in the ICOM definition.
+                    <br>
+                    As with a traditional museum, a virtual museum can be designed around specific objects (such as an
+                    art museum or a natural history museum), or can consist of online exhibitions created from primary
+                    or secondary resources (as, for example in a science museum). Moreover, a virtual museum can refer
+                    to the mobile or World Wide Web offerings of traditional museums (e.g., displaying digital
+                    representations of its collections or exhibits); or can be born digital content such as, 3D
+                    environments, net art, virtual reality and digital art. Often, discussed in conjunction with other
+                    cultural institutions, a museum by definition, is essentially separate from its sister institutions
+                    such as a library or an archive. Virtual museums are usually, but not exclusively delivered
+                    electronically when they are denoted as online museums, hypermuseum, digital museum, cybermuseums or
+                    web museums.
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-12 textTitle mt-4'>
+                    Gallery
+                </div>
                 <div class='col-md-12'>
-                    <div class="multiple-items">
+                    <div class="row w-100" id='home_gallery_list'>
 
                     </div>
                 </div>
+                <div class='col-md-12 more_place align_center'>
+                    <div class='more_button'>More</div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="gallery" role="tabpanel">
+            <div class='col-md-12'>
+                <div class="multiple-items">
 
-                <div class='3d_box col-md-12  mb-6'>
-                    <!-- place for 3d model -->
-                    <div class="row">
-                        <div class='col-md-2 col-sm-12 col-xs-12 p-0' id='gallery_button_group'>
-                            <div class="row" style='padding:0 15px'>
-                                <div class='col-md-12 col-sm-4 col-xs-4'>
-                                    <button id='spin' class='button button-plain button-border'><i class="fa fa-circle-o-notch fa-spin"></i>Spin</button>
-                                </div>
-                                <div class='col-md-12 col-sm-4 col-xs-4'>
-                                    <button id='wireframe' class='button button-plain button-border'><i class="fa fa-globe fa-lg"></i>Wireframe</button>
-                                </div>
-                                <div class='col-md-12 col-sm-4 col-xs-4'>
-                                    <button id='texture' class='button button-plain button-border'><i class="fa fa-image fa-lg"></i>Texture</button>
-                                </div>
-                                <div class='col-md-12 col-sm-4 col-xs-4'>
-                                    <button id='camera1' class='button button-plain button-border'><i class="fa fa-file-video-o fa-lg"></i>Camera1</button>
-                                </div>
-                                <div class='col-md-12 col-sm-4 col-xs-4'>
-                                    <button id='camera2' class='button button-plain button-border'><i class="fa fa-file-video-o fa-lg"></i>Camera2</button>
-                                </div>
-                                <div class='col-md-12 col-sm-4 col-xs-4'>
-                                    <button id='light' class='button button-plain button-border'><i class="fa fa-lightbulb-o fa-lg"></i>Light</button>
+                </div>
+            </div>
+
+            <div class='3d_box col-md-12  mb-6'>
+                <!-- place for 3d model -->
+                <div class="row">
+                    <div class='col-md-2 col-sm-12 col-xs-12 p-0' id='gallery_button_group'>
+                        <div class="row" style='padding:0 15px'>
+                            <div class='col-md-12 col-sm-4 col-xs-4'>
+                                <button id='spin' class='button button-plain button-border'><i
+                                        class="fa fa-circle-o-notch fa-spin"></i>Spin</button>
+                            </div>
+                            <div class='col-md-12 col-sm-4 col-xs-4'>
+                                <button id='wireframe' class='button button-plain button-border'><i
+                                        class="fa fa-globe fa-lg"></i>Wireframe</button>
+                            </div>
+                            <div class='col-md-12 col-sm-4 col-xs-4'>
+                                <button id='texture' class='button button-plain button-border'><i
+                                        class="fa fa-image fa-lg"></i>Texture</button>
+                            </div>
+                            <div class='col-md-12 col-sm-4 col-xs-4'>
+                                <button id='camera1' class='button button-plain button-border'><i
+                                        class="fa fa-file-video-o fa-lg"></i>Camera1</button>
+                            </div>
+                            <div class='col-md-12 col-sm-4 col-xs-4'>
+                                <button id='camera2' class='button button-plain button-border'><i
+                                        class="fa fa-file-video-o fa-lg"></i>Camera2</button>
+                            </div>
+                            <div class='col-md-12 col-sm-4 col-xs-4'>
+                                <button id='light' class='button button-plain button-border'><i
+                                        class="fa fa-lightbulb-o fa-lg"></i>Light</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class='col-md-10 col-sm-12 col-xs-12 p-0'>
+                        <ul class="nav nav-tabs" id='tab_header'>
+                            <li>
+                                <div href="#x3d" data-toggle="tab">3D Model</div>
+                            </li>
+                            <li>
+                                <div href="#image" data-toggle="tab">Image</div>
+                            </li>
+                            <li>
+                                <div href="#video" data-toggle="tab">Video</div>
+                            </li>
+                        </ul>
+                        <div id="gallery_tab" class="tab-content">
+                            <div class="tab-pane fade in active" id="image">
+                                <div class='row'>
+                                    <div class='col-md-12'>
+                                        <img src="" alt="" id='gallery_img' class='w-100'>
+                                    </div>
                                 </div>
                             </div>
-                            
-                        </div>
-                        <div class='col-md-10 col-sm-12 col-xs-12 p-0'>
-                            <ul class="nav nav-tabs" id='tab_header'>
-                                <li><div href="#x3d" data-toggle="tab">3D Model</div></li>
-                                <li><div href="#image" data-toggle="tab">Image</div></li>
-                                <li><div href="#video" data-toggle="tab">Video</div></li>
-                            </ul>
-                            <div id="gallery_tab" class="tab-content">
-                                <div class="tab-pane fade in active" id="image">
-                                    <div class='row'>
-                                        <div class='col-md-12'>
-                                            <img src="" alt="" id='gallery_img' class='w-100'>
-                                        </div>
+                            <div class="tab-pane fade" id="video">
+                                <div class='row'>
+                                    <div class='col-md-12'>
+                                        <video src="" controls="controls" id='gallery_video' class='w-100'></video>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="video">
-                                    <div class='row'>
-                                        <div class='col-md-12'>
-                                            <video src=""  controls="controls" id='gallery_video' class='w-100'></video>
-                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="x3d">
+                                <div class='row'>
+                                    <div class='col-md-9 col-sm-12 col-xs-12' id='3d_box'>
+                                        <!-- 3d box -->
+                                        <x3d width='500px' height='400px'>
+                                            <scene>
+                                                <inline id="3d_model" url="../static/default_model/vase5.x3d"></inline>
+                                            </scene>
+                                        </x3d>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="x3d">
-                                    <div class='row'>
-                                        <div class='col-md-9 col-sm-12 col-xs-12' id='3d_box'>
-                                            <!-- 3d box -->
-                                            <x3d width='500px' height='400px'> 
-                                                <scene>
-                                                    <inline id="3d_model" url="../static/default_model/vase5.x3d"></inline> 
-                                                </scene> 
-                                            </x3d>  
-                                        </div>
-                                        <div class='col-md-3 col-sm-12 col-xs-12' id='3d_text'>
-                                        </div>
+                                    <div class='col-md-3 col-sm-12 col-xs-12' id='3d_text'>
                                     </div>
                                 </div>
                             </div>
@@ -159,32 +190,64 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="admin" role="tabpanel">
-                <div class='col-md-2 col-xs-3 col-sm-3 offset-md-10 offset-sm-9 offset-xs-9 newModel align_center p-1 border border-dark rounded mb-2'  data-toggle="modal" data-target="#newModel" style='display: none;'>
-                    New Model
-                </div>
-                <table id="admin_table" class="hover stripe row-border reportsTable" cellspacing="0" width="100%">
-                    <thead>
+        </div>
+        <div class="tab-pane fade" id="admin" role="tabpanel">
+            <div class='col-md-2 col-xs-3 col-sm-3 offset-md-10 offset-sm-9 offset-xs-9 newModel align_center p-1 border border-dark rounded mb-2'
+                data-toggle="modal" data-target="#newModel" style='display: none;'>
+                New Model
+            </div>
+            <table id="admin_table" class="hover stripe row-border reportsTable" cellspacing="0" width="100%">
+                <thead>
                     <tr>
                         <th>Model ID</th>
                         <th>Description</th>
                         <th>Options</th>
                     </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="info" role="tabpanel">
-                1236
-            </div>
-            <div class="modal fade" id="newModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="info" role="tabpanel">
+            <h2>About</h2>
+            <p>This website is made as coursework for Mobile 3D Applications module, MSc Computing with Digital
+                Media.</p>
+            <p>Candidate Number: 195213</p>
+            <h2>Statement of Originality</h2>
+            <p>The statement of originality should be worded as follows: "These web pages are submitted as part
+                requirement for the degree of [insert your degree title] at the University of Sussex. They are the
+                product of my own labour except where indicated in the web page content. These web pages or
+                contents may be freely copied and distributed provided the source is acknowledged".</p>
+            <h2>References</h2>
+            All models were modelled from the following links:
+            1) http://collections.vam.ac.uk/item/O496508/vase-and-lid-unknown/
+            2) http://collections.vam.ac.uk/item/O495833/ewer-unknown/
+            3) http://collections.vam.ac.uk/item/O494838/incense-burner-unknown/
+            4) http://collections.vam.ac.uk/item/O493603/vase-unknown/
+            5) Vases 5-8 were retextured of the links declared above
+            Textures were downloaded from different Chinese websites, since they contain the largest amount of
+            freely distributed textures on this thematic:
+            1) http://down6.zhulong.com/mobile/tech/detailprof829994XR.htm
+            2) http://m.90sheji.com/sucai/16611966.html
+            3) http://blog.sina.com.cn/s/blog_452793220102wibh.html
+            4) The rest of the textures were found here:
+            http://www.cgmodel.com/essay-4177.html
+            <h2>Third-party library used:</h2>
+            1) Bootstrap: https://getbootstrap.com/
+            2) jQuery: https://jquery.com/
+            3) PHP Framewrok thinkPHP: https://github.com/top-think/framework
+            <h2>Tutorials used:</h2>
+            x3dom official tutorials: https://doc.x3dom.org/tutorials/index.html
+            ThinkPHP 5.1 Tutorial: https://www.kancloud.cn/manual/thinkphp5_1/353946
+        </div>
+        <div class="modal fade" id="newModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
                     <div class="modal-header">
                         <h6 class="modal-title" id="exampleModalLabel">Create new model</h6>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body row">
@@ -193,9 +256,11 @@
                         <div class='col-md-4 col-sm-12 col-xs-12'>Model Description:</div>
                         <div class='col-md-8 col-sm-12 col-xs-12'><input type="text" name="" id="model_des"></div>
                         <div class='col-md-4 col-sm-12 col-xs-12'>Image:</div>
-                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_image' name='image'></div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_image' name='image'>
+                        </div>
                         <div class='col-md-4 col-sm-12 col-xs-12'>Video:</div>
-                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_video' name='video'></div>
+                        <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_video' name='video'>
+                        </div>
                         <div class='col-md-4 col-sm-12 col-xs-12'>X3D:</div>
                         <div class='col-md-8 col-sm-12 col-xs-12'><input type="file" id='model_x3d' name='x3d'></div>
                     </div>
@@ -203,29 +268,27 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" id='create_model'>Create</button>
                     </div>
-                    </div>
                 </div>
             </div>
-                  
-    
-    
-          <!-- FOOTER -->
-          <footer>
+        </div>
+
+
+
+        <!-- FOOTER -->
+        <footer>
             <a href='#top' class="top_icon"><span class="fa fa-arrow-up fa-lg"></span></a></p>
             <p class='footer_title'>© Mobile 3D Applications</p>
-          </footer>
-        </main>
+        </footer>
+    </main>
 
 
-    
-        <!-- Bootstrap core JavaScript
+
+    <!-- Bootstrap core JavaScript
         ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="../static/js/assets/jquery/jquery.min.js" ></script>
-        <script src="../static/js/assets/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../static/js/x3dom.js"></script>
-        <script type="text/javascript" src="../static/js/assets/slick/slick.min.js"></script>
-        <script type="text/javascript" src="../static/js/assets/datatable/media/js/jquery.dataTables.min.js"></script>
-        <script src="../static/js/index.js"></script>
-      
-    
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/assets/jquery/jquery.min.js"></script>
+    <script src="../static/js/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../static/js/x3dom.js"></script>
+    <script type="text/javascript" src="../static/js/assets/slick/slick.min.js"></script>
+    <script type="text/javascript" src="../static/js/assets/datatable/media/js/jquery.dataTables.min.js"></script>
+    <script src="../static/js/index.js"></script>
