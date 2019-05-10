@@ -27,11 +27,6 @@ footer {
     color: #fff;
 }
 
-#header_title{
-    color: #fff;
-    font-size: 26px;
-}
-
 .top_icon {
     border: 2px solid #007bff;
     padding:6px;
@@ -48,17 +43,8 @@ footer {
 .textTitle {
     font-size: 2rem;
 }
-#home_card_box{
-    border:1px solid #333;
-    border-radius: 18px;
-    padding: 20px;
-    margin-top: 2rem;
-}
 
-#navbarCollapse{
-    border-radius: 0 0 10px 10px;
-    padding: 6px 20px;
-}
+#home_gallery_list {}
 
 .more_button {
     display: inline-block;
@@ -87,6 +73,7 @@ footer {
 .gallery_item {
     cursor: pointer;
     width: auto;
+    height: 100%;
 }
 
 .update_admin,
@@ -165,24 +152,6 @@ x3d{
     border-left: unset!important;
     width: 100%;
 }
-#tab_button_group{
-    
-}
-#gallery_dropdown,#gallery_view_dropdown{
-    position: absolute;
-    z-index: 1000;
-}
-/* cover bootstrap style start */
-.dropdown-item.active, .dropdown-item:active{
-    background-color: #6d6d6d;
-}
-
-.dropdown-item:focus, .dropdown-item:hover{
-    background-color: #fff;
-}
-/* cover bootstrap style end */
-
-/* screen width more than 768px -- laptop */
 @media (min-width: 768px) {
     
     .nav-item:not(:nth-child(4)){
@@ -206,11 +175,6 @@ x3d{
     #d3_box{
         border-right: 1px solid #333;
     }
-
-    #nav_container{
-        padding: 0px 12px;
-        border-radius: 0 0 12px 12px;
-    }
     /* #gallery_button_group{
         border: 1px solid #343a40;
         border-right: unset!important; 
@@ -224,12 +188,14 @@ x3d{
     } */
 }
 
-
-/* screen width less than 767px  -- mobile */
 @media (max-width: 767px) {
-    #header_title{
-        display: none;
+    body{}
+    /* #gallery_button_group>div>div:nth-child(1),#gallery_button_group>div>div:nth-child(2),#gallery_button_group>div>div:nth-child(3){
+        border-bottom: 1px solid #343a40;
     }
+    #gallery_button_group>div>div:nth-child(1),#gallery_button_group>div>div:nth-child(2),#gallery_button_group>div>div:nth-child(4),#gallery_button_group>div>div:nth-child(5){
+        border-right: 1px solid #343a40;
+    } */
     #gallery_button_group>div>div{
         width: 33%;
         padding:5px;
@@ -245,8 +211,5 @@ x3d{
     #admin_table_wrapper{
         overflow: auto;
     }
-    #home_card_box div{
-        padding: unset!important;
-    }
-   
 }
+
