@@ -27,72 +27,86 @@
 
 <body name='top'>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#"><img src='../static/assets/img/M_logo_copy.png' style='width: 40px;margin-right: 10px'/>Virtual Museum</a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbarCollapse" style="">
-                <ul class="navbar-nav ml-auto" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home"><span class="oi oi-home"></span>Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#gallery"><span class="oi oi-grid-three-up"></span>Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#admin"><span class="oi oi-people"></span>Admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#info"><span class="oi oi-info"></span>Info</a>
-                    </li>
-                </ul>
-                <!-- <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form> -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top p-0">
+            <div class='container bg-dark' id='nav_container'>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span><img src="../static/assets/img/logo.png" alt="" style='width:30px'></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                    <span class="" id='header_title'>
+                        Virtual Museum
+                    </span>
+                    <ul class="navbar-nav ml-auto" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home"><span class="oi oi-home"></span>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery"><span class="oi oi-grid-three-up"></span>Collections</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#admin"><span class="oi oi-people"></span>Manage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#info"><span class="oi oi-info"></span>Info</a>
+                        </li>
+                    </ul>
+                    <!-- <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form> -->
+                </div>
             </div>
+            <!-- <a class="navbar-brand" href="#"><img src='../static/assets/img/logo.png' style='width: 40px;margin-right: 10px'/></a> -->
+            
         </nav>
     </header>
 
     <main class='container'>
 
         <div class="tab-pane fade" id="home" role="tabpanel">
-
-            <div class='row'>
-                <div class='col-md-6 offset-md-3 col-sm-10 col-xs-10 align_center'>
-                    <img src="../static/assets/img/home.jpg" alt="" class='w-100 my-4'>
+            <div id='home_card_box'>
+                <div class='row'>
+                    <div class='col-md-4 col-sm-10 col-xs-10 align_center'>
+                        <img src="../static/assets/img/logo.png" alt="" class='w-100 my-4'>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="col-md-12 textTitle">
+                            Heading
+                        </div>
+                        <div class='col-md-12 textArea'>
+                            A museum is defined by the International Council of Museums (ICOM) as a 'non-profit, permanent
+                            institution in the service of society and its development, open to the public, which acquires,
+                            conserves, researches, communicates and exhibits the tangible and intangible heritage of humanity
+                            and its environment for the purposes of education, study and enjoyment'. A virtual museum (VM)
+                            (according to the ViMM.1 working definition[1]) is a digital entity that draws on the
+                            characteristics of a museum, in order to complement, enhance, or augment the museum through
+                            personalization, interactivity, user experience and richness of content. Both the 'physical' museum
+                            (PhM) and the VM share a common commitment to the institutional validation of content and quality of
+                            experience through curatorial process, inherent in the ICOM definition.
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col-md-12 textTitle">
+                        Description
+                    </div>
+                    <div class='col-md-12'>
+                        A museum is defined by the International Council of Museums (ICOM) as a 'non-profit, permanent
+                            institution in the service of society and its development, open to the public, which acquires,
+                            conserves, researches, communicates and exhibits the tangible and intangible heritage of humanity
+                            and its environment for the purposes of education, study and enjoyment'. A virtual museum (VM)
+                            (according to the ViMM.1 working definition[1]) is a digital entity that draws on the
+                            characteristics of a museum, in order to complement, enhance, or augment the museum through
+                            personalization, interactivity, user experience and richness of content. Both the 'physical' museum
+                            (PhM) and the VM share a common commitment to the institutional validation of content and quality of
+                            experience through curatorial process, inherent in the ICOM definition.
+                    </div>
                 </div>
             </div>
-            <div class='row'>
-                <div class="col-md-12 textTitle">
-                    Virtual Museum heading
-                </div>
-                <div class='col-md-12 textArea'>
-                    A museum is defined by the International Council of Museums (ICOM) as a 'non-profit, permanent
-                    institution in the service of society and its development, open to the public, which acquires,
-                    conserves, researches, communicates and exhibits the tangible and intangible heritage of humanity
-                    and its environment for the purposes of education, study and enjoyment'. A virtual museum (VM)
-                    (according to the ViMM.1 working definition[1]) is a digital entity that draws on the
-                    characteristics of a museum, in order to complement, enhance, or augment the museum through
-                    personalization, interactivity, user experience and richness of content. Both the 'physical' museum
-                    (PhM) and the VM share a common commitment to the institutional validation of content and quality of
-                    experience through curatorial process, inherent in the ICOM definition.
-                    <br>
-                    As with a traditional museum, a virtual museum can be designed around specific objects (such as an
-                    art museum or a natural history museum), or can consist of online exhibitions created from primary
-                    or secondary resources (as, for example in a science museum). Moreover, a virtual museum can refer
-                    to the mobile or World Wide Web offerings of traditional museums (e.g., displaying digital
-                    representations of its collections or exhibits); or can be born digital content such as, 3D
-                    environments, net art, virtual reality and digital art. Often, discussed in conjunction with other
-                    cultural institutions, a museum by definition, is essentially separate from its sister institutions
-                    such as a library or an archive. Virtual museums are usually, but not exclusively delivered
-                    electronically when they are denoted as online museums, hypermuseum, digital museum, cybermuseums or
-                    web museums.
-                </div>
-            </div>
-            <div class='row'>
+            
+            <!-- <div class='row'>
                 <div class='col-md-12 textTitle mt-4'>
                     Gallery
                 </div>
@@ -104,20 +118,20 @@
                 <div class='col-md-12 more_place align_center'>
                     <div class='more_button'>More</div>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <div class="tab-pane fade" id="gallery" role="tabpanel">
-            <div class='col-md-12' id='multiple_box'>
+        <div class="tab-pane fade row" id="gallery" role="tabpanel">
+            <div class='col-md-2 order-last col-sm-12 col-xs-12' id='multiple_box'>
                 <div class="multiple-items">
 
                 </div>
             </div>
 
-            <div class='3d_box col-md-12  mb-6'>
+            <div class='3d_box col-md-10  mb-6 col-sm-12 col-xs-12 order-first'>
                 <!-- place for 3d model -->
                 <div class="row">
-                    <div class='col-md-2 col-sm-12 col-xs-12 p-0' id='gallery_button_group'>
-                        <div class="row" style='padding:0 15px;margin-top: 33px;'>
+                    <!-- <div class='col-md-2 col-sm-12 col-xs-12 p-0' id='gallery_button_group'>
+                        <div class="row" style='padding:0 15px;margin-top: 33px;' id='gallery_button'>
                             <div class='col-md-12 col-sm-4 col-xs-4'>
                                 <button id='spin' class='button button-plain button-border'><i
                                         class="fa fa-circle-o-notch fa-spin"></i>Spin</button>
@@ -144,19 +158,28 @@
                             </div>
                         </div>
 
-                    </div>
-                    <div class='col-md-10 col-sm-12 col-xs-12 p-0'>
-                        <ul class="nav nav-tabs" id='tab_header'>
-                            <li>
-                                <div href="#x3d" data-toggle="tab">3D Model</div>
-                            </li>
-                            <li>
-                                <div href="#image" data-toggle="tab">Image</div>
-                            </li>
-                            <li>
-                                <div href="#video" data-toggle="tab">Video</div>
-                            </li>
-                        </ul>
+                    </div> -->
+                    <div class='col-md-12 col-sm-12 col-xs-12 p-0'>
+                        <div class="dropdown nav nav-tabs" id='gallery_dropdown'>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Items
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div href="#x3d" data-toggle="tab" class='dropdown-item'>3D Model</div>
+                                <div href="#image" data-toggle="tab" class='dropdown-item'>Image</div>
+                                <div href="#video" data-toggle="tab" class='dropdown-item'>Video</div>
+                            </div>
+                        </div>
+                        <div class="dropdown nav nav-tabs" id='gallery_view_dropdown'>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Items
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div href="#x3d" data-toggle="tab" class='dropdown-item'>3D Model</div>
+                                <div href="#image" data-toggle="tab" class='dropdown-item'>Image</div>
+                                <div href="#video" data-toggle="tab" class='dropdown-item'>Video</div>
+                            </div>
+                        </div>
                         <div id="gallery_tab" class="tab-content">
                             <div class="tab-pane fade in active" id="image">
                                 <div class='row'>
@@ -310,7 +333,7 @@
 
         <!-- FOOTER -->
         <footer>
-            <a href='#top' class="top_icon"><span class="fa fa-arrow-up fa-lg"></span></a></p>
+            <!-- <a href='#top' class="top_icon"><span class="fa fa-arrow-up fa-lg"></span></a></p> -->
             <p class='footer_title'>© Mobile 3D Applications</p>
         </footer>
     </main>
@@ -321,6 +344,7 @@
         ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../static/js/assets/jquery/jquery.min.js"></script>
+    <script src="../static/js/assets/popper/popper.min.js"></script>
     <script src="../static/js/assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../static/js/x3dom.js"></script>
     <script type="text/javascript" src="../static/js/assets/slick/slick.min.js"></script>
