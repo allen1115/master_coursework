@@ -77,9 +77,7 @@ $(function(){
                 $('#tab_header div:first').tab('show')
             }else if(name=='admin'){
                 Self.initAdminPage()
-            }
-            $(".top_icon").trigger("click");
-            
+            }            
         },
         getGalleryList:function(num=Self.data_store.listCount){
             $(".more_place").hide();
@@ -163,6 +161,8 @@ $(function(){
                 speed: 300,
                 slidesToShow: 4,
                 slidesToScroll: 4,
+                verticalSwiping:true,
+                vertical:true,
                 responsive: [
                     {
                     breakpoint: 1024,
