@@ -62,8 +62,8 @@ $(function(){
                 var name = $(e.currentTarget).attr("id");
                 
             })
-            $("#gallery_button_group button").off("click").on("click",function(e){
-                $("#gallery_button_group button").removeClass("active");
+            $("#gallery_view_dropdown button").off("click").on("click",function(e){
+                $("#gallery_view_dropdown button").removeClass("active");
                 $(e.currentTarget).addClass("active");
             })
         },
@@ -74,7 +74,7 @@ $(function(){
             $(".nav-link[href='#"+name+"']").parent().addClass('active');
             if(name=='gallery'){
                 Self.initGalleryPage();
-                $('#tab_header div:first').tab('show')
+                $('#gallery_dropdown div.dropdown-item:first').tab('show')
             }else if(name=='admin'){
                 Self.initAdminPage()
             }            
@@ -120,7 +120,7 @@ $(function(){
                 method:"get",
                 dataType:'JSON',
                 success:function(res){
-                    $("#gallery_button_group button").removeClass("active");
+                    $("#gallery_view_dropdown button").removeClass("active");
                     Self.renderDataToGallery(res)
                 },
                 error:function(err){
@@ -162,7 +162,7 @@ $(function(){
                 slidesToShow: 4,
                 slidesToScroll: 4,
                 verticalSwiping:true,
-                vertical:true,
+                vertical:$(document).width()<768?false:true,
                 responsive: [
                     {
                     breakpoint: 1024,
@@ -170,7 +170,6 @@ $(function(){
                         slidesToShow: 3,
                         slidesToScroll: 3,
                         infinite: true,
-                        dots: true,
                         arrows: true,
                     }
                     },
@@ -178,14 +177,18 @@ $(function(){
                     breakpoint: 600,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2
+                        slidesToScroll: 2,
+                        
+                        arrows: false,
                     }
                     },
                     {
                     breakpoint: 480,
                     settings: {
                         slidesToShow: 1,
-                        slidesToScroll: 1
+                        slidesToScroll: 1,
+                        
+                        arrows: false,
                     }
                     }
                     // You can unslick at a given breakpoint now by adding:
@@ -201,7 +204,7 @@ $(function(){
                 method:"get",
                 dataType:'JSON',
                 success:function(res){
-                    $("#gallery_button_group button").removeClass("active");
+                    $("#gallery_view_dropdown .button").removeClass("active");
                     $("#3d_model").attr("url", res.x3d);
                     $('#d3_text').html(res.description);
                     $('#gallery_img').attr('src', res.img);
@@ -242,7 +245,8 @@ $(function(){
                 processing: false,
                 searching:false,
                 lengthChangeOption:false,
-                info:false
+                info:false,
+                
               };
 
               dataTableOption.columns = [{
@@ -264,7 +268,7 @@ $(function(){
                   "width": '10%',
                   render: function (data, type, full) {
                     return `<div data_id='${data}'>
-                        <span class='update_admin border-right border-dark'>Update</span><span class='delete_admin'>Delete</span>
+                        <span class='update_admin border-right border-dark'>Edit</span><span class='delete_admin'>Delete</span>
                     </div>`
                   }
                 }

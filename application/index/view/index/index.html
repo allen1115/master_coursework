@@ -160,7 +160,7 @@
 
                     </div> -->
                     <div class='col-md-12 col-sm-12 col-xs-12 p-0'>
-                        <div class="dropdown nav nav-tabs" id='gallery_dropdown'>
+                        <div class="dropdown nav" id='gallery_dropdown'>
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Items
                             </button>
@@ -170,14 +170,29 @@
                                 <div href="#video" data-toggle="tab" class='dropdown-item'>Video</div>
                             </div>
                         </div>
-                        <div class="dropdown nav nav-tabs" id='gallery_view_dropdown'>
+                        <div class="dropdown nav" id='gallery_view_dropdown'>
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Items
+                                Views
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div href="#x3d" data-toggle="tab" class='dropdown-item'>3D Model</div>
+                                <div class="row" style='padding:0 15px;'>
+                                    <div id='spin' class='button button-plain button-border' data-toggle="tab" class='dropdown-item'>
+                                        <i class="fa fa-circle-o-notch"></i>Spin</div>
+                                    <div id='wireframe' class='button button-plain button-border' data-toggle="tab" class='dropdown-item'>
+                                        <i class="fa fa-globe fa-lg"></i>Wireframe</div>
+                                    <div id='texture' class='button button-plain button-border' data-toggle="tab" class='dropdown-item'>
+                                        <i class="fa fa-image fa-lg"></i>Texture</div>
+                                    <div id='camera1' class='button button-plain button-border' data-toggle="tab" class='dropdown-item'>
+                                        <i class="fa fa-file-video-o fa-lg"></i>Camera1</div>
+                                    <div id='camera2' class='button button-plain button-border' data-toggle="tab" class='dropdown-item'>
+                                        <i class="fa fa-file-video-o fa-lg"></i>Camera2</div>
+                                    <div id='light' class='button button-plain button-border' data-toggle="tab" class='dropdown-item'>
+                                        <i class="fa fa-lightbulb-o fa-lg"></i>Light</div>
+                                </div>
+
+                                <!-- <div href="#x3d" data-toggle="tab" class='dropdown-item'>3D Model</div>
                                 <div href="#image" data-toggle="tab" class='dropdown-item'>Image</div>
-                                <div href="#video" data-toggle="tab" class='dropdown-item'>Video</div>
+                                <div href="#video" data-toggle="tab" class='dropdown-item'>Video</div> -->
                             </div>
                         </div>
                         <div id="gallery_tab" class="tab-content">
@@ -215,7 +230,7 @@
             </div>
         </div>
         <div class="tab-pane fade" id="admin" role="tabpanel">
-            <div class='col-md-2 col-xs-3 col-sm-3 offset-md-10 offset-sm-9 offset-xs-9 newModel align_center p-1 border border-dark rounded mb-2'
+            <div class='col-md-2 col-xs-3 col-sm-3 newModel align_center p-1 border border-dark rounded mb-2'
                 data-toggle="modal" data-target="#newModel" style='display: none;'>
                 New Model
             </div>
@@ -224,7 +239,7 @@
                     <tr>
                         <th>Model ID</th>
                         <th>Description</th>
-                        <th>Options</th>
+                        <th>Manage</th>
                     </tr>
                 </thead>
                 <tbody>
