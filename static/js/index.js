@@ -4,7 +4,10 @@ $(function(){
             Self.initEvent();
             Self.setActiveTab();
             Self.getGalleryList(); 
-            
+            if($(document).width()<768){
+                $("#multiple_box").removeClass("order-last");
+                $(".3d_box").removeClass("order-first");
+            }
         },
         data_store:{
             listCount:4
