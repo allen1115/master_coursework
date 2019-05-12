@@ -17,7 +17,10 @@ footer {
     left: 0;
     right: 0;
 }
-
+#gallery_tab{
+    height: 24rem;
+    overflow: auto;
+}
 .footer_title {
     border-bottom: unset !important;
     margin-bottom: unset !important;
@@ -175,17 +178,9 @@ x3d{
     #d3_box{
         border-right: 1px solid #333;
     }
-    /* #gallery_button_group{
-        border: 1px solid #343a40;
-        border-right: unset!important; 
-        border-radius: 10px 0 0 10px!important;
-        margin-top: 33px!important;
-        margin-bottom: unset!important;
-        width: 100%!important;
-    } */
-    /* #gallery_button_group>div>div{
-        border-bottom: 1px solid #333
-    } */
+    #gallery_tab .col-md-7,#gallery_tab .col-md-5{
+
+    }
 }
 
 @media (max-width: 767px) {
@@ -213,3 +208,6 @@ x3d{
     }
 }
 
+.d3_text{
+    overflow: auto;
+}
