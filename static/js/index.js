@@ -22,12 +22,6 @@ $(function(){
                     },500) 
                 }
             });
-            
-            //load more data;
-            $(".more_button").off("click").on("click",function(){
-                Self.data_store.listCount+=4;
-                Self.getGalleryList()
-            })
 
             $("#create_model").off("click").on("click",function(){
                 let formData = new FormData();
@@ -39,7 +33,7 @@ $(function(){
                 formData.append('description', $("#model_des").val())
                 $.ajax({
                     data:formData,
-                    url:"museum/create",
+                    url:"public/museum/create",
                     type: 'post',
                     cache: false,
                     processData: false,
@@ -74,19 +68,28 @@ $(function(){
                 $(e.currentTarget).addClass("active");
                 const id = e.currentTarget.id;
                 if(id === 'spin') {
-                    document.getElementById('Vase__TIMER').setAttribute('enabled', 'true')
+                    const spinStatus = localStorage.getItem('spin')
+                    if(spinStatus === 'true') {
+                        // stop the spin
+                        document.getElementById('Vase__TIMER').setAttribute('enabled', 'false')
+                        localStorage.setItem('spin', false);
+                    } else {
+                        document.getElementById('Vase__TIMER').setAttribute('enabled', 'true')
+                        localStorage.setItem('spin', true);
+                    }
+                    
                 } else if (id === 'wireframe') {
                     document.getElementById('Vase__TIMER').setAttribute('enabled', 'false')
                     var e = document.getElementsByTagName('x3d')[0];
                     e.runtime.togglePoints(true);
                 } else if (id === 'texture') {
                     document.getElementById('Vase__TIMER').setAttribute('enabled', 'false')
-                    const texture = document.getElementsByTagName('ImageTexture')[0].getAttribute('url')[0];
-                    if(texture !== '') {
+                    const texture = document.getElementsByTagName('ImageTexture')[0].getAttribute('url');
+                    if(texture[0] !== '') {
                         document.getElementsByTagName('ImageTexture')[0].setAttribute('url', '');
                     } else {
                         let url = localStorage.getItem('imgUrl');
-                        url = url.split('/static/')[1]
+                        url = url.split('static/')[1]
                         document.getElementsByTagName('ImageTexture')[0].setAttribute('url', '../' + url);
                     }
                 } else if (id === 'camera1') {
@@ -132,7 +135,7 @@ $(function(){
         getGalleryList:function(num=Self.data_store.listCount){
             $(".more_place").hide();
             $.ajax({
-                url:"museum/findAll",
+                url:"public/museum/findAll",
                 dataType:'JSON',
                 method:"get",
                 success:function(res){
@@ -146,9 +149,10 @@ $(function(){
         renderDataToGalleryList:function(res){
             $("#home_gallery_list").empty();
             res.map((item,index)=>{
+                if(index > Self.data_store.listCount - 1) return;
                 $("#home_gallery_list").append(
                     `<div class='col-md-3 col-sm-6 col-xs-6 home_gallery_item align_center' data-id='${item.id}'>
-                        <img src="${item.img}" alt="" class='w-100' />
+                        <img src="${item.img}" alt="" class='w-100' style='height:70%' />
                         <div class=''>${item.name}</div>
                     </div>`
                 )
@@ -166,12 +170,13 @@ $(function(){
         },
         getGalleryById:function(id){
             $.ajax({
-                url:"museum/findOne/" + id,
+                url:"public/museum/findOne/" + id,
                 method:"get",
                 dataType:'JSON',
                 success:function(res){
                     localStorage.setItem('imgUrl', res.img);
                     localStorage.setItem('light', 'on');
+                    localStorage.setItem('spin', false);
                     $("#gallery_button_group button").removeClass("active");
                     Self.renderDataToGallery(res)
                 },
@@ -189,7 +194,7 @@ $(function(){
         },
         initGalleryPage:function(){
             $.ajax({
-                url:"museum/findAll",
+                url:"public/museum/findAll",
                 dataType:"json",
                 method:"get",
                 success:function(res){
@@ -247,12 +252,13 @@ $(function(){
             $(".gallery_item").off("click").on("click",function(e){
                 var id= $(e.currentTarget).attr("data_id");
                 $.ajax({
-                url:"museum/findOne/" + id,
+                url:"public/museum/findOne/" + id,
                 method:"get",
                 dataType:'JSON',
                 success:function(res){
                     localStorage.setItem('imgUrl', res.img);
                     localStorage.setItem('light', 'on');
+                    localStorage.setItem('spin', false);
                     $("#gallery_button_group button").removeClass("active");
                     $("#3d_model").attr("url", res.x3d);
                     $('#d3_text').html(res.description);
@@ -270,7 +276,7 @@ $(function(){
         },
         getAdminData:function(){
             $.ajax({
-                url:"museum/findAll",
+                url:"public/museum/findAll",
                 method:"get",
                 dataType:'JSON',
                 success:function(res){
@@ -336,7 +342,7 @@ $(function(){
         },
         updateVase:function(param){
             $.ajax({
-                url:"museum/update",
+                url:"public/museum/update",
                 method:"post",
                 dataType:'JSON',
                 data: param,
@@ -352,7 +358,7 @@ $(function(){
         },
         deleteVase:function(id){
             $.ajax({
-                url:"museum/delete",
+                url:"public/museum/delete",
                 method:"post",
                 data: {id: id},
                 dataType:'JSON',

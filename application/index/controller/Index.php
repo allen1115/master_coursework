@@ -25,7 +25,7 @@ class Index extends Controller
      */
     public function findAll()
     {
-        $data = Museum::all();
+        $data = Museum::order('name', 'asc') -> all();
         return json($data, 200, ['Access-Control-Allow-Origin' => '*']);
     }
 
