@@ -152,7 +152,7 @@ $(function(){
                 if(index > Self.data_store.listCount - 1) return;
                 $("#home_gallery_list").append(
                     `<div class='col-md-3 col-sm-6 col-xs-6 home_gallery_item align_center' data-id='${item.id}'>
-                        <img src="${item.img}" alt="" class='w-100' style='height:70%' />
+                        <img src="${item.img}" alt="" class='w-100' style='height:40%' />
                         <div class=''>${item.name}</div>
                     </div>`
                 )
